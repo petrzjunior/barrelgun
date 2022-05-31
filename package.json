@@ -1,6 +1,6 @@
 {
   "name": "barrelgun",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "keywords": [],
   "license": "MIT",
@@ -10,11 +10,14 @@
   "module": "dist/module.js",
   "source": "src/main.ts",
   "types": "dist/types.d.ts",
+  "bin": "dist/main.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "parcel build",
     "watch": "node watch.js"
   },
-  "bin": "dist/main.js",
   "dependencies": {
     "commander": "9.3.0",
     "fast-glob": "3.2.11"
