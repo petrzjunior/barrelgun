@@ -1,19 +1,24 @@
 {
   "name": "barrelgun",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
-  "source": "src/main.ts",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Petr Zahradník",
+  "type": "module",
   "main": "dist/main.js",
   "module": "dist/module.js",
+  "source": "src/main.ts",
   "types": "dist/types.d.ts",
   "scripts": {
-    "watch": "node watch.js",
-    "build": "parcel build"
+    "build": "parcel build",
+    "watch": "node watch.js"
   },
-  "type": "module",
-  "keywords": [],
-  "author": "Petr Zahradník",
-  "license": "MIT",
+  "bin": "dist/main.js",
+  "dependencies": {
+    "commander": "9.3.0",
+    "fast-glob": "3.2.11"
+  },
   "devDependencies": {
     "@parcel/config-default": "2.6.0",
     "@parcel/core": "2.6.0",
@@ -23,9 +28,5 @@
     "@types/node": "17.0.36",
     "parcel": "2.6.0",
     "typescript": "4.7.2"
-  },
-  "dependencies": {
-    "commander": "9.3.0",
-    "fast-glob": "3.2.11"
   }
 }
