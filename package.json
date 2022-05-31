@@ -2,7 +2,22 @@
   "name": "barrelgun",
   "version": "1.1.1",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "barrel",
+    "index",
+    "index.js",
+    "index.ts",
+    "generator",
+    "import",
+    "export",
+    "reexport"
+  ],
+  "homepage": "https://github.com/petrzjunior/barrelgun",
+  "bugs": "https://github.com/petrzjunior/barrelgun/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petrzjunior/barrelgun.git"
+  },
   "license": "MIT",
   "author": "Petr Zahradník",
   "type": "module",
@@ -19,8 +34,8 @@
     "watch": "node watch.js"
   },
   "dependencies": {
-    "commander": "9.3.0",
-    "fast-glob": "3.2.11"
+    "commander": "^9.3.0",
+    "fast-glob": "^3.2.11"
   },
   "devDependencies": {
     "@parcel/config-default": "2.6.0",
