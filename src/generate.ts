@@ -72,8 +72,14 @@ const parseConfig = async (config: BarrelgunConfig): Promise<ParsedBarrelgunConf
 
 const findFilesToImport = async (base: string, glob: string | string[], barrelFile: string): Promise<string[]> => {
 	const files = await fg(glob, {cwd: base});
-	// exclude self
-	return files.filter(file => file != barrelFile);
+	return files
+		// exclude self
+		.filter(file => file != barrelFile)
+		// make relative path
+		.map(file => {
+			const {dir, name} = Path.parse(file);
+			return `./${Path.join(dir, name)}`;
+		});
 };
 
 const sortLines = (lines: string[]): string[] => {
