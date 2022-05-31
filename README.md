@@ -1,0 +1,3 @@
+# barrelgun
+
+Barrel file generator
