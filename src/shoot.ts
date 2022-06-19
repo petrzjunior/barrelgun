@@ -1,4 +1,3 @@
-import {readFile} from 'fs/promises';
 import {BarrelgunConfig, generate} from './generate';
 import Path from 'path';
 
