@@ -1,6 +1,6 @@
 {
   "name": "barrelgun",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "",
   "keywords": [
     "barrel",
@@ -38,13 +38,13 @@
     "fast-glob": "^3.2.11"
   },
   "devDependencies": {
-    "@parcel/config-default": "2.6.0",
-    "@parcel/core": "2.6.0",
-    "@parcel/packager-ts": "2.6.0",
-    "@parcel/transformer-typescript-types": "2.6.0",
-    "@parcel/validator-typescript": "2.6.0",
-    "@types/node": "17.0.36",
-    "parcel": "2.6.0",
-    "typescript": "4.7.2"
+    "@parcel/config-default": "2.6.1",
+    "@parcel/core": "2.6.1",
+    "@parcel/packager-ts": "2.6.1",
+    "@parcel/transformer-typescript-types": "2.6.1",
+    "@parcel/validator-typescript": "2.6.1",
+    "@types/node": "18.0.0",
+    "parcel": "2.6.1",
+    "typescript": "4.7.4"
   }
 }
