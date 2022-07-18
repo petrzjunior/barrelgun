@@ -1,6 +1,6 @@
 # barrelgun
 
-*Generate your barrel files like a cowboy* 🤠
+Generate your barrel files like a cowboy 🤠
 
 ![npm version](https://img.shields.io/npm/v/barrelgun)
 ![MIT license](https://img.shields.io/npm/l/barrelgun)
@@ -53,8 +53,8 @@ The following structure will be created
 └── test
     ├── ignore.js
     ├── all.spec.js
-    └── components
-        └── button.spec.js
+    ├── components
+    │   └── button.spec.js
     └── tests.spec.js  <- this file is created
 ```
 
@@ -75,6 +75,14 @@ export {components_button_spec_js} from './components/button.spec.js';
 export {all_spec_js} from './all.spec.js';
 // You have been warned!
 ```
+
+## Features
+
+- Import files recursively with [globs](https://github.com/mrmlnc/fast-glob)
+- Create all barrels at once with  [globs](https://github.com/mrmlnc/fast-glob)
+- Custom templates
+- Sort lines
+- Ignore empty files
 
 ## Related projects
 
