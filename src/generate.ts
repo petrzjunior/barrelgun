@@ -10,6 +10,7 @@ export interface BarrelgunConfigBarrel {
 	files: string | string[];
 	fileTemplate?: FileTemplate;
 	lineTemplate?: LineTemplate;
+	ignoreEmpty?: boolean;
 }
 
 export interface BarrelgunConfig {
@@ -23,6 +24,7 @@ interface ParsedBarrelgunConfigBarrel {
 	files: string[];
 	fileTemplate: FileTemplate;
 	lineTemplate: LineTemplate;
+	ignoreEmpty: boolean;
 }
 
 interface ParsedBarrelgunConfig {
@@ -56,14 +58,13 @@ const parseConfig = async (config: BarrelgunConfig): Promise<ParsedBarrelgunConf
 	const barrels = await Promise.all(config.barrels.map(async barrel => {
 		const dirs = await findBarrelDirs(barrel.path);
 		const files = typeof barrel.files === 'string' ? [barrel.files] : barrel.files;
-		return dirs.map(dir => {
-			return {
-				path: dir,
-				files,
-				fileTemplate: barrel.fileTemplate ?? defaultFileTemplate,
-				lineTemplate: barrel.lineTemplate ?? defaultLineTemplate,
-			};
-		});
+		return dirs.map<ParsedBarrelgunConfigBarrel>(dir => ({
+			path: dir,
+			files,
+			fileTemplate: barrel.fileTemplate ?? defaultFileTemplate,
+			lineTemplate: barrel.lineTemplate ?? defaultLineTemplate,
+			ignoreEmpty: barrel.ignoreEmpty ?? true,
+		}));
 	}));
 	return {
 		barrels: barrels.flat(),
@@ -104,11 +105,15 @@ const generate = async (config: BarrelgunConfig) => {
 
 	for (const barrel of parsedConfig.barrels) {
 		const files = await findFilesToImport(barrel.path.dir, barrel.files, barrel.path.filename);
-		const lines = sortLines(files);
-		const content = renderTemplate(lines, barrel);
 		const barrelPath = Path.format({dir: barrel.path.dir, base: barrel.path.filename});
-		console.log(`  Writing barrel ${barrelPath}`);
-		await writeBarrel(barrelPath, content);
+		if (files.length === 0 && barrel.ignoreEmpty) {
+			console.log(`  Ignoring empty ${barrelPath}`);
+		} else {
+			const lines = sortLines(files);
+			const content = renderTemplate(lines, barrel);
+			console.log(`  Writing barrel ${barrelPath}`);
+			await writeBarrel(barrelPath, content);
+		}
 	}
 	console.log('Finished generating barrels');
 };
