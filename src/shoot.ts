@@ -1,4 +1,4 @@
-import {BarrelgunConfig, generate} from './generate';
+import {BarrelgunConfig, generate} from './generate.js';
 import Path from 'path';
 
 export interface BarrelgunShootOptions {

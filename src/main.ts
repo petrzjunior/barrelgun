@@ -1,7 +1,7 @@
 import {Command} from 'commander';
-import {BarrelgunShootOptions, shoot} from './shoot';
+import {BarrelgunShootOptions, shoot} from './shoot.js';
 
-export type {BarrelgunConfig, BarrelgunConfigBarrel, LineTemplate, FileTemplate} from './generate';
+export type {BarrelgunConfig, BarrelgunConfigBarrel, LineTemplate, FileTemplate} from './generate.js';
 
 const program = new Command();
 

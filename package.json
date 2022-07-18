@@ -21,30 +21,31 @@
   "license": "MIT",
   "author": "Petr Zahradník",
   "type": "module",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "source": "src/main.ts",
-  "types": "dist/types.d.ts",
-  "bin": "dist/main.js",
+  "exports": {
+    ".": {
+      "require": "./dist/main.cjs",
+      "import": "./dist/main.mjs"
+    }
+  },
+  "main": "dist/main.mjs",
+  "module": "dist/main.cjs",
+  "source": "src/main",
+  "types": "dist/main.d.ts",
+  "bin": "dist/main.mjs",
   "files": [
     "dist/*"
   ],
   "scripts": {
-    "build": "parcel build",
-    "watch": "node watch.js"
+    "build": "unbuild",
+    "prepublishOnly": "unbuild"
   },
   "dependencies": {
-    "commander": "^9.3.0",
+    "commander": "^9.4.0",
     "fast-glob": "^3.2.11"
   },
   "devDependencies": {
-    "@parcel/config-default": "2.6.1",
-    "@parcel/core": "2.6.1",
-    "@parcel/packager-ts": "2.6.1",
-    "@parcel/transformer-typescript-types": "2.6.1",
-    "@parcel/validator-typescript": "2.6.1",
-    "@types/node": "18.0.0",
-    "parcel": "2.6.1",
-    "typescript": "4.7.4"
+    "@types/node": "18.0.6",
+    "typescript": "4.7.4",
+    "unbuild": "0.7.4"
   }
 }

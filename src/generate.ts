@@ -74,7 +74,7 @@ const findFilesToImport = async (base: string, glob: string | string[], barrelFi
 	const files = await fg(glob, {cwd: base});
 	return files
 		// exclude self
-		.filter(file => file != barrelFile)
+		.filter(file => file !== barrelFile)
 		// make relative path
 		.map(file => {
 			const {dir, name} = Path.parse(file);
