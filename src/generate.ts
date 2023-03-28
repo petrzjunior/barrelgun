@@ -120,7 +120,7 @@ const findFilesToImport = async (base: string, glob: string | string[], barrelFi
 		// make relative path
 		.map(file => {
 			const {dir, name} = Path.parse(file);
-			return `./${Path.join(dir, name)}`;
+			return `./${Path.posix.join(dir, name)}`;
 		});
 };
 
