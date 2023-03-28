@@ -1,12 +1,14 @@
 import {BarrelgunConfig, generate} from './generate.js';
 import Path from 'path';
+import {pathToFileURL} from 'url';
 
 export interface BarrelgunShootOptions {
 	config?: string;
 }
 
 const loadConfig = async (path: string): Promise<BarrelgunConfig> => {
-	const absolutePath = Path.resolve(process.cwd(), path);
+	// convert fo file URL for compatibility with Windows
+	const absolutePath = pathToFileURL(Path.resolve(process.cwd(), path)).toString();
 	console.log(`Reading config from ${absolutePath}`);
 	const promise = await import(absolutePath);
 	return promise.default;
