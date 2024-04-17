@@ -12,7 +12,7 @@ program
 
 program.command('shoot')
 	.description('Generate barrels')
-	.option('-c', '--config <path>')
+	.option('-c, --config <path>', 'config file path')
 	.action(async (options: BarrelgunShootOptions) => await shoot(options));
 
 program.parse();
