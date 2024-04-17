@@ -40,12 +40,12 @@
     "prepublishOnly": "unbuild"
   },
   "dependencies": {
-    "commander": "^9.4.0",
-    "fast-glob": "^3.2.11"
+    "commander": "^12.0.0",
+    "fast-glob": "^3.3.2"
   },
   "devDependencies": {
-    "@types/node": "18.0.6",
-    "typescript": "4.7.4",
-    "unbuild": "0.7.4"
+    "@types/node": "20.12.7",
+    "typescript": "5.4.5",
+    "unbuild": "2.0.0"
   }
 }
